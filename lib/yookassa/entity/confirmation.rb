@@ -11,6 +11,7 @@ module Yookassa
       option :confirmation_url, proc(&:to_s), optional: true
       option :enforce, optional: true
       option :return_url, proc(&:to_s), optional: true
+      option :confirmation_token, proc(&:to_s), optional: true
     end
   end
 end
