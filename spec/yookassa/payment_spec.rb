@@ -7,7 +7,7 @@ RSpec.describe Yookassa::Payment do
 
   shared_examples 'returns_payment_object' do
     it 'returns success' do
-      expect(subject).to be_kind_of Yookassa::Response
+      expect(subject).to be_kind_of Yookassa::EntityResponse
       expect(subject.id).to eq '2490ded1-000f-5000-8000-1f64111bc63e'
       expect(subject.test).to eq true
       expect(subject.paid).to eq false

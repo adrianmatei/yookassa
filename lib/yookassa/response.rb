@@ -3,9 +3,6 @@
 module Yookassa
   class Response
     extend Dry::Initializer
-    option :id, proc(&:to_s)
-    option :status, proc(&:to_s), default: proc { nil }
-
     class << self
       def build(*res)
         body = res.last

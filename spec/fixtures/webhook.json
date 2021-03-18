@@ -1,0 +1,4 @@
+{
+  "event": "payment.succeeded",
+  "url": "https://www.merchant-website.com/notification_url"
+}

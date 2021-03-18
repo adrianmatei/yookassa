@@ -4,7 +4,7 @@ require_relative './amount'
 
 module Yookassa
   module Entity
-    class Refund < Yookassa::Response
+    class Refund < Yookassa::EntityResponse
       option :payment_id
       option :created_at, proc(&:to_s)
       option :amount, Entity::Amount
