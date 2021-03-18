@@ -32,7 +32,7 @@ module Yookassa
       body { payload }
 
       response(200) { |*res| Entity::Webhook.build(*res) }
-      response(400, 404) { |*res| Error.build(*res) }
+      response(400, 401, 403, 404, 429, 500) { |*res| Error.build(*res) }
     end
   end
 end
