@@ -3,11 +3,11 @@
 RSpec.describe Yookassa::Refund do
   let(:settings) { { shop_id: 'SHOP_ID', api_key: 'API_KEY' } }
   let(:idempotency_key) { 12_345 }
-  let(:payment) { described_class.new(settings) }
+  let(:refund) { described_class.new(settings) }
 
   shared_examples 'returns_refund_object' do
     it 'returns success' do
-      expect(subject).to be_kind_of Yookassa::Response
+      expect(subject).to be_kind_of Yookassa::EntityResponse
       expect(subject.id).to eq '2491ab0c-0015-5000-9000-1640c7f1a6f0'
       expect(subject.payment_id).to eq '2491a6e2-000f-5000-9000-1480e820ae17'
       expect(subject.status).to eq 'succeeded'
@@ -26,7 +26,7 @@ RSpec.describe Yookassa::Refund do
     let(:body) { File.read('spec/fixtures/refund_response.json') }
 
     before  { stub_request(:any, //).to_return(body: body) }
-    subject { payment.create(payload: payload, idempotency_key: idempotency_key) }
+    subject { refund.create(payload: payload, idempotency_key: idempotency_key) }
 
     it 'sends a request' do
       subject
@@ -42,7 +42,7 @@ RSpec.describe Yookassa::Refund do
     let(:body) { File.read('spec/fixtures/refund_response.json') }
 
     before  { stub_request(:any, //).to_return(body: body) }
-    subject { payment.get_refund_info(payment_id: payment_id) }
+    subject { refund.get_refund_info(payment_id: payment_id) }
 
     it 'sends a request' do
       subject

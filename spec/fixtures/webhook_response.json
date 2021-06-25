@@ -1,0 +1,5 @@
+{
+  "id": "e44e8088-bd73-43b1-959a-954f3a7d0c54",
+  "event": "payment.succeeded",
+  "url": "https://www.merchant-website.com/notification_url"
+}

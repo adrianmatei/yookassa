@@ -29,7 +29,7 @@ module Yookassa
       body { payment }
 
       response(200) { |*res| Entity::Payment.build(*res) }
-      response(400) { |*res| Error.build(*res) }
+      response(400, 401, 403, 404, 429, 500) { |*res| Error.build(*res) }
     end
 
     operation :capture do
