@@ -17,6 +17,7 @@ RSpec.describe Yookassa::Payment do
       expect(subject.description).to eq nil
       expect(subject.expires_at).to eq nil
       expect(subject.metadata).to eq Hash[]
+      expect(subject.receipt_registration).to eq 'pending'
 
       expect(subject.amount).to be_kind_of Yookassa::Entity::Amount
       expect(subject.amount.currency).to eq 'RUB'
