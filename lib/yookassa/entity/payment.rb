@@ -17,6 +17,7 @@ module Yookassa
       option :payment_method, Entity::PaymentMethod, optional: true
       option :confirmation, Entity::Confirmation, optional: true
       option :test
+      option :receipt_registration, proc(&:to_s), optional: true
     end
   end
 end
